@@ -1,8 +1,3 @@
-
-
-  // var wins = 0
-  // var loses = 0
-  // var Guesesleft = 5
   var computerChoices = "abcdefghijklmnopqrstuvwxyz";
 
   var stats = {
@@ -12,6 +7,51 @@
   	computerpick: "a",
   	guessessofar: [],
   }
+
+  var difficulty = 5 ;
+  var lose = new Audio("assets/images/loseeffect.mp4");
+  var wrong = new Audio("assets/images/wong.mp3");
+  var win = new Audio("assets/images/win.mp3");
+
+   $(document).ready(function() {
+
+    
+      $(".easyButton").on("click", function() {
+        if(stats.guesesLeft == difficulty){
+        stats.guesesLeft = 20;
+        difficulty = 20 ;
+        document.getElementById("guesesleft").innerHTML = stats.guesesLeft ;
+      }
+      else{
+        alert("stop cheating wait till new game to change difficulty")
+      }
+      });
+
+
+       $(".medButton").on("click", function() {
+        if(stats.guesesLeft == difficulty){
+        stats.guesesLeft = 10;
+        difficulty = 10 ;
+        document.getElementById("guesesleft").innerHTML = stats.guesesLeft ;
+      }
+      else{
+        alert("stop cheating wait till new game to change difficulty")
+      }
+      });
+
+
+        $(".hardButton").on("click", function() {
+          if(stats.guesesLeft == difficulty){
+        stats.guesesLeft = 5;
+        difficulty = 5 ;
+        document.getElementById("guesesleft").innerHTML = stats.guesesLeft ;
+      }
+      else{
+        alert("stop cheating wait till new game to change difficulty")
+      }
+      });
+    
+    });
 
 
     function computerpick(x){
@@ -38,22 +78,25 @@
  	 if (stats.guesesLeft > 1) {
         if (userPick === stats.computerpick) {
           stats.wins++
-          stats.guesesLeft = 5 ;
+          stats.guesesLeft = difficulty ;
           stats.computerpick = computerpick(computerpick);
           stats.guessessofar = [] ;
+          win.play();
           
         }
 
         else{
            stats.guesesLeft --;
+           wrong.play();
              }
 
       }
     else{
       stats.loses ++;
-       stats.guesesLeft = 5 ;
+       stats.guesesLeft = difficulty ;
       stats.computerpick = computerpick(computerpick); 
         stats.guessessofar = [] ;
+        lose.play();
     }
 
   
@@ -78,45 +121,5 @@
 
 
 
-
-
-
-//     document.onkeyup = function(event){
-
-// console.log(guesesleft);
-
-//   var computerChoices = "abcdefghijklmnopqrstuvwxyz";
-
-//       var userPick = event.key ;
-
-//   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-  
-
-
-//   if (Guesesleft > 0) {
-//         if (userPick === computerGuess) {
-//           wins++
-//         }
-
-//         else{
-//            Guesesleft --;
-//              }
-
-//       }
-//     else{
-//       loses ++;
-//     }
-
-  
-      
-    
-
-//     document.getElementById("userPick").innerHTML = userPick
-//     document.getElementById("computerGuess").innerHTML = computerGuess
-//     document.getElementById("wins").innerHTML = wins
-//     document.getElementById("loses").innerHTML = loses
-//     document.getElementById("guesesleft").innerHTML = Guesesleft
-
-//       }
 
 

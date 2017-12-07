@@ -1,0 +1,10 @@
+header{
+	text-align: center;
+	font-family: 'Berkshire Swash', cursive;
+}
+body{
+	background: url(../images/wonka.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: grey;
+}
