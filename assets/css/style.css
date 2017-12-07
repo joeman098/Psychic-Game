@@ -8,3 +8,7 @@ body{
 	background-position: center;
 	background-color: grey;
 }
+#game{
+	text-align: center;
+	color: white;
+}
